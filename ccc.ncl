@@ -5,8 +5,8 @@ level = (/850,700,500/)
 limit = (/108,126.5,23,42.3/)  ;west,east,south,north
 path1     = "."
 path2     = "high/plot/"
-path3     = "2008"
-spl_name  = tochar(path3)
+path3     = 2008
+spl_name  = tochar(tostring(path3-8))
 path4     = spl_name(0:1)+"_"+spl_name(2:3)
 
 filename1 = path1+"before"+"/wrfout_d01_2016-01-"+path4+"0000"
@@ -44,7 +44,7 @@ do pl = 0,kl-1
     u_plane_after   = wrf_user_intrp3d( u_after,p_after,"h",pressure,0.,False)
     v_plane_after   = wrf_user_intrp3d( v_after,p_after,"h",pressure,0.,False)
 
-    filename3 = path2+tostring(pressure)+"/1601"+path3+".000"
+    filename3 = path2+tostring(pressure)+"/1601"+tostring(path3)+".000"
 
     c = readAsciiTable(filename3,10,"float",2)
     lon        = c(:,1)
